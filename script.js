@@ -126,5 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // ==========================================
+    // 4. ЛОГИКА ДЛЯ БУРГЕР-МЕНЮ (Мобильное меню)
+    // ==========================================
+    const burgerMenu = document.getElementById('burger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (burgerMenu && navMenu) {
+        burgerMenu.addEventListener('click', () => {
+            // Переключаем класс active у кнопки (анимация в крестик)
+            burgerMenu.classList.toggle('active');
+            // Переключаем класс active у меню (показ/скрытие)
+            navMenu.classList.toggle('active');
+        });
+    }
 
 });

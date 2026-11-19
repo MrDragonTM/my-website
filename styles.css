@@ -12,7 +12,7 @@
 html, body {
     height: 100%;
     max-width: 100vw;
-    overflow-x: hidden; /* Убирает горизонтальный скролл */
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -45,17 +45,24 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   ШАПКА
+   ШАПКА (Десктоп)
    ========================================= */
 .rectangleup {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 15px;
     padding: 10px 25px;
     min-height: 80px;
     width: 100%;
     background-color: #FFFFFF;
+    position: relative; /* Важно для выпадающего меню */
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo {
@@ -70,6 +77,11 @@ h1, h2, h3 {
     color: #2f3b40;
     letter-spacing: 0.5px;
     flex-shrink: 0;
+}
+
+/* Скрываем бургер на компьютере */
+.burger-menu {
+    display: none; 
 }
 
 header nav {
@@ -191,7 +203,6 @@ header nav ul li.active a {
     flex-wrap: wrap;
 }
 
-/* Лечим блок с текстом */
 #fastbio {
     background-color: #8FB472;
     border-radius: 20px;
@@ -591,30 +602,93 @@ input[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
-    /* Шапка */
+    /* --- НАСТРОЙКА ШАПКИ И БУРГЕР-МЕНЮ --- */
     .rectangleup {
-        flex-direction: column;
-        padding: 15px;
-        gap: 10px;
-    }
-    .logo {
-        width: 60px;
-        height: 60px;
-    }
-    header nav {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 5px;
-    }
-    header nav ul {
-        justify-content: center;
-    }
-    header nav ul li.btn a {
-        font-size: 14px;
-        padding: 6px 12px;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 10px 20px;
     }
 
-    /* Блок с текстом на главной */
+    .header-brand {
+        gap: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .site-title {
+        font-size: 18px;
+    }
+
+    /* Показываем бургер */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .burger-menu span {
+        width: 100%;
+        height: 3px;
+        background-color: #2f3b40;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Анимация крестика */
+    .burger-menu.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Выпадающее меню */
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-left: 0;
+        display: none; /* Скрыто по умолчанию */
+        z-index: 99;
+    }
+
+    header nav.active {
+        display: block; /* Показываем при клике */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+        gap: 12px;
+    }
+
+    header nav ul li.btn a {
+        display: block;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Остальные элементы */
     #fbandsh {
         flex-direction: column;
         align-items: stretch;
@@ -622,14 +696,13 @@ input[type="submit"]:hover {
     }
     #fastbio {
         flex: none !important;
-        height: 300px !important;
+        height: auto !important;
         min-height: 0 !important;
     }
     #photoosn {
         max-width: 100%;
     }
 
-    /* Таблица изобретений */
     .tbl-cell {
         flex-direction: column;
         align-items: center;
@@ -643,7 +716,6 @@ input[type="submit"]:hover {
         text-align: center;
     }
 
-    /* Галерея на телефонах */
     .regtangle_for_blenderphotos,
     #regtangle_for_blenderphotos_1,
     #regtangle_for_blendervideo {
@@ -662,10 +734,6 @@ input[type="submit"]:hover {
 }
 
 @media (max-width: 480px) {
-    header nav ul li.btn a {
-        font-size: 13px;
-        padding: 6px 10px;
-    }
     #backToTop {
         width: 45px;
         height: 45px;

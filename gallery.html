@@ -10,14 +10,27 @@
 <body>
     <header>
         <div class="rectangleup">
-            <img src="img/kulibinlogo.png" class="logo" alt="Логотип Кулибина">
-            <span class="site-title">Иван Кулибин</span>
-            <nav>
+            <!-- Группируем лого и название -->
+            <div class="header-brand">
+                <img src="img/kulibinlogo.png" class="logo" alt="Логотип Кулибина">
+                <span class="site-title">Иван Кулибин</span>
+            </div>
+
+            <!-- Кнопка бургер-меню -->
+            <button class="burger-menu" id="burger-menu" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Меню навигации -->
+            <nav id="nav-menu">
                 <ul>
-                    <li class="btn"><a href="index.html">Главная</a></li>
+                    <!-- Не забудьте проставить class="active" на нужной странице! -->
+                    <li class="btn active"><a href="index.html">Главная</a></li>
                     <li class="btn"><a href="biography.html">Биография</a></li>
                     <li class="btn"><a href="izobretenia.html">Изобретения</a></li>
-                    <li class="btn active"><a href="gallery.html">Галерея</a></li>
+                    <li class="btn"><a href="gallery.html">Галерея</a></li>
                 </ul>
             </nav>
         </div>
