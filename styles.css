@@ -45,7 +45,7 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   ШАПКА (Десктоп)
+   ШАПКА
    ========================================= */
 .rectangleup {
     display: flex;
@@ -56,7 +56,7 @@ h1, h2, h3 {
     min-height: 80px;
     width: 100%;
     background-color: #FFFFFF;
-    position: relative; /* Важно для выпадающего меню */
+    position: relative;
 }
 
 .header-brand {
@@ -79,7 +79,6 @@ h1, h2, h3 {
     flex-shrink: 0;
 }
 
-/* Скрываем бургер на компьютере */
 .burger-menu {
     display: none; 
 }
@@ -192,6 +191,7 @@ header nav ul li.active a {
     padding: 0 15px;
 }
 
+/* Контейнер для текста и фото (Десктоп) */
 #fbandsh {
     display: flex;
     justify-content: center;
@@ -200,29 +200,29 @@ header nav ul li.active a {
     max-width: 1000px;
     width: 90%;
     margin: 30px auto;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Запрещаем перенос на десктопе */
 }
 
+/* Блок с текстом */
 #fastbio {
     background-color: #8FB472;
     border-radius: 20px;
     padding: 20px;
     margin: 0;
-    width: 100%;
-    max-width: 750px;
-    display: block;
+    flex: 1; /* Занимает всё свободное место */
     height: auto !important;
     min-height: 0 !important;
 }
 
+/* Фото */
 #photoosn {
     width: 100%;
-    max-width: 380px;
+    max-width: 380px; /* Ограничиваем ширину фото */
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: top;
     border-radius: 20px;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Запрещаем фото сжиматься */
 }
 
 #shtrzagolovok {
@@ -602,28 +602,23 @@ input[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
-    /* --- НАСТРОЙКА ШАПКИ И БУРГЕР-МЕНЮ --- */
+    /* Шапка и бургер */
     .rectangleup {
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: nowrap;
         padding: 10px 20px;
     }
-
     .header-brand {
         gap: 10px;
     }
-
     .logo {
         width: 50px;
         height: 50px;
     }
-    
     .site-title {
         font-size: 18px;
     }
-
-    /* Показываем бургер */
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -635,7 +630,6 @@ input[type="submit"]:hover {
         cursor: pointer;
         z-index: 100;
     }
-
     .burger-menu span {
         width: 100%;
         height: 3px;
@@ -643,8 +637,6 @@ input[type="submit"]:hover {
         border-radius: 3px;
         transition: all 0.3s ease;
     }
-
-    /* Анимация крестика */
     .burger-menu.active span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -654,8 +646,6 @@ input[type="submit"]:hover {
     .burger-menu.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
-
-    /* Выпадающее меню */
     header nav {
         position: absolute;
         top: 100%;
@@ -664,21 +654,18 @@ input[type="submit"]:hover {
         background-color: #FFFFFF;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         margin-left: 0;
-        display: none; /* Скрыто по умолчанию */
+        display: none;
         z-index: 99;
     }
-
     header nav.active {
-        display: block; /* Показываем при клике */
+        display: block;
     }
-
     header nav ul {
         flex-direction: column;
         align-items: center;
         padding: 15px 0;
         gap: 12px;
     }
-
     header nav ul li.btn a {
         display: block;
         width: 200px;
@@ -688,21 +675,24 @@ input[type="submit"]:hover {
         font-size: 16px;
     }
 
-    /* Остальные элементы */
+    /* Главная - ставим фото под текст */
     #fbandsh {
         flex-direction: column;
         align-items: stretch;
         gap: 15px;
     }
     #fastbio {
-        flex: none !important;
+        flex: none !important; /* Отключаем растягивание */
+        width: 100%;
         height: auto !important;
         min-height: 0 !important;
     }
     #photoosn {
         max-width: 100%;
+        width: 100%; /* Фото на всю ширину на телефоне */
     }
 
+    /* Изобретения */
     .tbl-cell {
         flex-direction: column;
         align-items: center;
@@ -716,6 +706,7 @@ input[type="submit"]:hover {
         text-align: center;
     }
 
+    /* Галерея */
     .regtangle_for_blenderphotos,
     #regtangle_for_blenderphotos_1,
     #regtangle_for_blendervideo {
