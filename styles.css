@@ -131,7 +131,7 @@ header nav ul li.active a {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    z-index: 99;
+    z-index: 9999;
     width: 52px;
     height: 52px;
     padding: 0;
