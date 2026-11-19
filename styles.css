@@ -191,14 +191,15 @@ header nav ul li.active a {
     flex-wrap: wrap;
 }
 
-/* ИСПРАВЛЕНИЕ ПРОБЕЛА: жестко сбрасываем все возможные высоты */
+/* Лечим блок с текстом */
 #fastbio {
     background-color: #8FB472;
     border-radius: 20px;
     padding: 20px;
-    flex: 1 1 400px;
-    min-width: 0;
     margin: 0;
+    width: 100%;
+    max-width: 750px;
+    display: block;
     height: auto !important;
     min-height: 0 !important;
 }
@@ -613,15 +614,14 @@ input[type="submit"]:hover {
         padding: 6px 12px;
     }
 
-    /* ГЛАВНАЯ - Лечим пробел */
+    /* Блок с текстом на главной */
     #fbandsh {
         flex-direction: column;
-        align-items: stretch; /* Растягиваем элементы по ширине */
+        align-items: stretch;
         gap: 15px;
     }
     #fastbio {
-        width: 100%;
-        flex: none; /* Отключаем растягивание flex */
+        flex: none !important;
         height: auto !important;
         min-height: 0 !important;
     }
