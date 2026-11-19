@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/iiKulibin.png">
+</head>
+<body>
+    <header>
+        <div class="rectangleup">
+            <img src="img/kulibinlogo.png" class="logo" alt="Логотип Кулибина">
+            <span class="site-title">Иван Кулибин</span>
+            <nav>
+                <ul>
+                    <li class="btn active"><a href="index.html">Главная</a></li>
+                    <li class="btn"><a href="biography.html">Биография</a></li>
+                    <li class="btn"><a href="izobretenia.html">Изобретения</a></li>
+                    <li class="btn"><a href="gallery.html">Галерея</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 class="zagolovok">Иван Петрович Кулибин</h1>
+    <h2 id="mechanik">Знаменитый механик-изобретатель</h2>
+
+    <div id="fbandsh">
+        <p id="fastbio">
+            Иван Петрович Кулибин (1735–1818): подробная биография.
+            Иван Петрович Кулибин — легендарный русский механик-самоучка, изобретатель, которого нередко называют «нижегородским Архимедом». Его имя стало нарицательным: сегодня «кулибиным» зовут талантливого мастера, способного придумать и собрать что-то необычное своими руками.
+        </p>
+        <img src="img/human.jpg" id="photoosn" alt="Иван Петрович Кулибин">
+    </div>
+
+    <h3 id="shtrzagolovok">Несколько важных штрихов</h3>
+    <div id="shtrihi">
+        <p id="shtrtxt">
+            — Кулибин не только создавал изобретения, но и налаживал работу академической мастерской: под его руководством изготавливали станки, астрономические, физические и навигационные приборы, микроскопы, барометры, термометры, подзорные трубы, весы и другие механизмы.<br><br>
+            — Он также ремонтировал сложные часы, например, дважды (в 1792 и 1799 годах) восстанавливал знаменитые часы «Павлин» работы Джеймса Кокса.<br><br>
+            — Многие идеи Кулибина опередили своё время и не нашли практического применения при его жизни.
+        </p>
+    </div>
+
+    <div id="formacont">
+        <form action="#" id="forma">
+            <legend id="zglvkinforma">Будь с нами</legend>
+            <p class="txtinforma">Ваше имя:</p>
+            <input type="text" placeholder="Введите имя">
+            <p class="txtinforma">Ваш пол:</p>
+            <input type="radio" name="gender" value="m" id="gender-m"><label for="gender-m">Мужской</label>
+            <input type="radio" name="gender" value="f" id="gender-f"><label for="gender-f">Женский</label>
+            <p class="txtinforma">Кто вы:</p>
+            <select>
+                <option value="shkl">Школьник</option>
+                <option value="student">Студент</option>
+                <option value="vzrosli">Взрослый</option>
+            </select>
+            <p><input type="submit" value="Присоединиться"></p>
+        </form>
+    </div>
+
+    <button id="backToTop" title="Наверх">↑</button>
+    <footer>
+        <div class="footer rectangledown">+7 (777) 777 77 77 | Егор Комаров | egorkomarov700@gmail.com<br>© Все права защищены</div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

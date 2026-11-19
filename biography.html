@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биография</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/iiKulibin.png">
+</head>
+<body>
+    <header>
+        <div class="rectangleup">
+            <img src="img/kulibinlogo.png" class="logo" alt="Логотип Кулибина">
+            <span class="site-title">Иван Кулибин</span>
+            <nav>
+                <ul>
+                    <li class="btn"><a href="index.html">Главная</a></li>
+                    <li class="btn active"><a href="biography.html">Биография</a></li>
+                    <li class="btn"><a href="izobretenia.html">Изобретения</a></li>
+                    <li class="btn"><a href="gallery.html">Галерея</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 class="zagolovok">Биография</h1>
+
+    <div id="bio">
+        <p id="bio1">
+            Иван Петрович Кулибин — легендарный русский механик-самоучка, изобретатель, которого нередко называют «нижегородским Архимедом». Его имя стало нарицательным: сегодня «кулибиным» зовут талантливого мастера, способного придумать и собрать что-то необычное своими руками.
+        </p>
+
+        <div class="blockbio">
+            <img src="img/clock.jpeg" class="biophotos" alt="Часы Кулибина">
+            <div class="biotxt">
+                <strong>Прорыв и признание при дворе.</strong><br>
+                Прорыв случился благодаря часам в форме гусиного яйца (1764–1767): в автомате из 427 деталей были мелодии и пасхальная сцена с движущимися фигурками. В 1769 году Кулибин подарил их Екатерине II — императрица пригласила его в Петербург и назначила руководителем механической мастерской Академии наук.
+            </div>
+        </div>
+
+        <div class="blockbio">
+            <div class="biotxt">
+                <strong>Ранние годы и становление мастера.</strong><br>
+                Кулибин родился в 1735 году в слободе Подновье близ Нижнего Новгорода в семье торговца, в старообрядческой среде — это сформировало его сдержанный характер. С детства увлекался механизмами и часами, освоил слесарное, токарное и часовое дело. В 1758 году открыл в Нижнем Новгороде часовую мастерскую и быстро завоевал репутацию надёжного мастера.
+            </div>
+            <img src="img/melnitsa.png" class="biophotos" alt="Мельница">
+        </div>
+
+        <div class="blockbio">
+            <img src="img/lift.jpg" class="biophotos" alt="Лифт Кулибина">
+            <div class="biotxt">
+                <strong>Последние годы и наследие.</strong><br>
+                В 1801 году Кулибин ушёл в отставку и вернулся в Нижний Новгород, где продолжал работать: предлагал проекты мостов, разрабатывал насосы, совершенствовал идею водохода, а в конце жизни пытался создать вечный двигатель, потратив на это почти все средства. Скончался Иван Петрович 30 июля (11 августа по новому стилю) 1818 года в Нижнем Новгороде, похоронен на Петропавловском кладбище (ныне — парк имени Кулибина).
+            </div>
+        </div>
+
+        <div class="blockbio">
+            <div class="biotxt">
+                <strong>Личная жизнь и особенности характера.</strong><br>
+                Кулибин был трижды женат, у него было 14 детей. Несмотря на покровительство двора, часто испытывал финансовые трудности: проекты не находили поддержки, а на идеи уходили личные средства. Оставался верен старообрядческим взглядам: носил кафтан и бороду, избегал излишеств и отказался от дворянского титула.
+            </div>
+            <img src="img/noga.png" class="biophotos" alt="Протез ноги">
+        </div>
+    </div>
+
+    <div id="audiozone">
+        <h2 id="zagolovok_audio">Звук «Самокатной» повозки</h2>
+        <audio id="audio" preload="auto">
+            <source src="zvukpovozki.mp3" type="audio/mpeg">
+        </audio>
+        <div class="custom-controls">
+            <button id="play-btn" class="audio-btn"><span class="icon">▶</span> Включить</button>
+            <button id="pause-btn" class="audio-btn" style="display: none;"><span class="icon">⏸</span> Пауза</button>
+        </div>
+        <div class="volume-control">
+            <label for="volume-slider">Громкость:</label>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+        </div>
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <button id="backToTop" title="Наверх">↑</button>
+    <footer>
+        <div class="footer rectangledown">+7 (777) 777 77 77 | Егор Комаров | egorkomarov700@gmail.com<br>© Все права защищены</div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
