@@ -12,7 +12,7 @@
 html, body {
     height: 100%;
     max-width: 100vw;
-    overflow-x: hidden; /* Запрещает горизонтальную прокрутку */
+    overflow-x: hidden; /* Убирает горизонтальный скролл на телефонах */
     scroll-behavior: smooth;
 }
 
@@ -55,7 +55,6 @@ h1, h2, h3 {
     padding: 10px 25px;
     min-height: 80px;
     width: 100%;
-    max-width: 100vw;
     background-color: #FFFFFF;
 }
 
@@ -184,7 +183,7 @@ header nav ul li.active a {
 #fbandsh {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Центрируем контент */
     gap: 25px;
     max-width: 1000px;
     width: 90%;
@@ -199,6 +198,7 @@ header nav ul li.active a {
     flex: 1 1 400px;
     min-width: 0;
     margin: 0;
+    height: auto !important; /* Принудительно убираем старую высоту 280px */
 }
 
 #photoosn {
@@ -206,6 +206,7 @@ header nav ul li.active a {
     max-width: 380px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
+    object-position: top; /* Чтобы голова не обрезалась */
     border-radius: 20px;
     flex-shrink: 0;
 }
@@ -230,6 +231,7 @@ header nav ul li.active a {
     border-radius: 20px;
     padding: 20px;
     margin: 0;
+    height: auto !important;
 }
 
 /* Форма */
@@ -242,6 +244,7 @@ header nav ul li.active a {
     padding: 25px;
     background-color: #8FB472;
     border-radius: 30px;
+    height: auto !important;
 }
 
 #forma {
@@ -321,6 +324,7 @@ input[type="submit"]:hover {
     max-width: 1000px;
     width: 90%;
     margin: 30px auto;
+    height: auto !important;
 }
 
 #bio1 {
@@ -328,6 +332,7 @@ input[type="submit"]:hover {
     border-radius: 20px;
     padding: 20px;
     margin: 0;
+    height: auto !important;
 }
 
 .blockbio {
@@ -351,6 +356,7 @@ input[type="submit"]:hover {
     padding: 20px;
     flex: 1;
     min-width: 0;
+    height: auto !important;
 }
 
 /* Аудио */
@@ -365,6 +371,7 @@ input[type="submit"]:hover {
     padding: 20px;
     background-color: #8FB472;
     border-radius: 15px;
+    height: auto !important;
 }
 
 #zagolovok_audio {
@@ -447,7 +454,7 @@ input[type="submit"]:hover {
 }
 
 /* =========================================
-   ИЗОБРЕТЕНИЯ (Таблица)
+   ИЗОБРЕТЕНИЯ
    ========================================= */
 .tbl {
     display: flex;
@@ -504,7 +511,6 @@ input[type="submit"]:hover {
     word-break: break-word;
 }
 
-/* Факты */
 #factszagolovok {
     font-size: clamp(24px, 3vw, 38px);
     text-align: center;
@@ -525,47 +531,41 @@ input[type="submit"]:hover {
     border-radius: 20px;
     padding: 20px;
     margin: 0;
+    height: auto !important;
 }
 
 /* =========================================
-   ГАЛЕРЕЯ (Базовые стили для ПК)
+   ГАЛЕРЕЯ (Адаптированная)
    ========================================= */
-.regtangle_for_blenderphotos {
-    display: flex;
-    width: 800px;
-    height: 600px;
-    background-color: #8FB472;
-    border-radius: 15px;
-    margin-top: 4%;
-    margin-left: 10%;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-}
-
-#regtangle_for_blenderphotos_1 {
-    display: flex;
-    width: 800px;
-    height: 600px;
-    background-color: #8FB472;
-    border-radius: 15px;
-    margin-top: 4%;
-    margin-left: 48%;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-}
-
+.regtangle_for_blenderphotos,
+#regtangle_for_blenderphotos_1,
 #regtangle_for_blendervideo {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 800px;
+    max-width: 90%; /* Защита от переполнения на планшетах */
     height: 600px;
     background-color: #8FB472;
     border-radius: 15px;
-    margin: 6% auto;
-    justify-content: center;
-    align-items: center;
     font-size: large;
+    margin: 30px auto; /* Выравнивание по центру */
+}
+
+/* Возвращаем "лесенку" на компьютерах (от 769px и выше) */
+@media (min-width: 769px) {
+    .regtangle_for_blenderphotos {
+        margin-left: 10%;
+        margin-right: auto;
+    }
+    #regtangle_for_blenderphotos_1 {
+        margin-left: 48%;
+        margin-right: auto;
+    }
+    /* Для третьего блока (видео) */
+    #regtangle_for_blendervideo {
+        margin: 6% auto;
+    }
 }
 
 #video {
@@ -577,7 +577,7 @@ input[type="submit"]:hover {
 }
 
 /* =========================================
-   АДАПТИВ
+   МОБИЛЬНАЯ АДАПТАЦИЯ
    ========================================= */
 @media (max-width: 900px) {
     .blockbio {
@@ -590,35 +590,38 @@ input[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
-    /* Исправление шапки */
+    /* Шапка */
     .rectangleup {
         flex-direction: column;
         padding: 15px;
         gap: 10px;
     }
-    
     .logo {
         width: 60px;
         height: 60px;
     }
-
-    .site-title {
-        font-size: 22px;
-    }
-
     header nav {
         width: 100%;
         margin-left: 0;
         margin-top: 5px;
     }
-
     header nav ul {
         justify-content: center;
     }
-
     header nav ul li.btn a {
         font-size: 14px;
         padding: 6px 12px;
+    }
+
+    /* Главная (исправляем пустоту) */
+    #fbandsh {
+        flex-direction: column;
+    }
+    #fastbio {
+        width: 100%;
+    }
+    #photoosn {
+        max-width: 100%;
     }
 
     /* Таблица изобретений */
@@ -627,45 +630,37 @@ input[type="submit"]:hover {
         align-items: center;
         text-align: center;
     }
-
     .photoizobreteniy {
         width: 100%;
         max-width: 350px;
     }
-
     .txtintbl {
         text-align: center;
     }
 
-    /* Адаптив Галереи (только для телефонов, чтобы не ломать ПК) */
+    /* Галерея на телефонах */
     .regtangle_for_blenderphotos,
     #regtangle_for_blenderphotos_1,
     #regtangle_for_blendervideo {
-        width: 95% !important;
+        width: 90% !important;
         height: auto !important;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 3; /* Сохраняет прямоугольную форму */
         margin: 20px auto !important;
     }
 
     #bio1, .biotxt, #audiozone, #factstxt {
         padding: 15px;
     }
-
     #tablica td {
         padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .site-title {
-        font-size: 20px;
-    }
-
     header nav ul li.btn a {
         font-size: 13px;
         padding: 6px 10px;
     }
-
     #backToTop {
         width: 45px;
         height: 45px;
@@ -673,7 +668,6 @@ input[type="submit"]:hover {
         bottom: 15px;
         right: 15px;
     }
-    
     .custom-controls {
         flex-direction: column;
         width: 100%;
