@@ -12,7 +12,7 @@
 html, body {
     height: 100%;
     max-width: 100vw;
-    overflow-x: hidden; /* Убирает горизонтальный скролл на телефонах */
+    overflow-x: hidden; /* Убирает горизонтальный скролл */
     scroll-behavior: smooth;
 }
 
@@ -183,7 +183,7 @@ header nav ul li.active a {
 #fbandsh {
     display: flex;
     justify-content: center;
-    align-items: center; /* Центрируем контент */
+    align-items: center;
     gap: 25px;
     max-width: 1000px;
     width: 90%;
@@ -191,6 +191,7 @@ header nav ul li.active a {
     flex-wrap: wrap;
 }
 
+/* ИСПРАВЛЕНИЕ ПРОБЕЛА: жестко сбрасываем все возможные высоты */
 #fastbio {
     background-color: #8FB472;
     border-radius: 20px;
@@ -198,7 +199,8 @@ header nav ul li.active a {
     flex: 1 1 400px;
     min-width: 0;
     margin: 0;
-    height: auto !important; /* Принудительно убираем старую высоту 280px */
+    height: auto !important;
+    min-height: 0 !important;
 }
 
 #photoosn {
@@ -206,7 +208,7 @@ header nav ul li.active a {
     max-width: 380px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    object-position: top; /* Чтобы голова не обрезалась */
+    object-position: top;
     border-radius: 20px;
     flex-shrink: 0;
 }
@@ -535,7 +537,7 @@ input[type="submit"]:hover {
 }
 
 /* =========================================
-   ГАЛЕРЕЯ (Адаптированная)
+   ГАЛЕРЕЯ
    ========================================= */
 .regtangle_for_blenderphotos,
 #regtangle_for_blenderphotos_1,
@@ -544,15 +546,14 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     width: 800px;
-    max-width: 90%; /* Защита от переполнения на планшетах */
+    max-width: 90%;
     height: 600px;
     background-color: #8FB472;
     border-radius: 15px;
     font-size: large;
-    margin: 30px auto; /* Выравнивание по центру */
+    margin: 30px auto;
 }
 
-/* Возвращаем "лесенку" на компьютерах (от 769px и выше) */
 @media (min-width: 769px) {
     .regtangle_for_blenderphotos {
         margin-left: 10%;
@@ -562,7 +563,6 @@ input[type="submit"]:hover {
         margin-left: 48%;
         margin-right: auto;
     }
-    /* Для третьего блока (видео) */
     #regtangle_for_blendervideo {
         margin: 6% auto;
     }
@@ -613,12 +613,17 @@ input[type="submit"]:hover {
         padding: 6px 12px;
     }
 
-    /* Главная (исправляем пустоту) */
+    /* ГЛАВНАЯ - Лечим пробел */
     #fbandsh {
         flex-direction: column;
+        align-items: stretch; /* Растягиваем элементы по ширине */
+        gap: 15px;
     }
     #fastbio {
         width: 100%;
+        flex: none; /* Отключаем растягивание flex */
+        height: auto !important;
+        min-height: 0 !important;
     }
     #photoosn {
         max-width: 100%;
@@ -644,7 +649,7 @@ input[type="submit"]:hover {
     #regtangle_for_blendervideo {
         width: 90% !important;
         height: auto !important;
-        aspect-ratio: 4 / 3; /* Сохраняет прямоугольную форму */
+        aspect-ratio: 4 / 3;
         margin: 20px auto !important;
     }
 
