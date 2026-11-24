@@ -10,7 +10,6 @@
 <body>
     <header>
         <div class="rectangleup">
-            <!-- Группируем лого и название -->
             <div class="header-brand">
                 <img src="img/kulibinlogo.png" class="logo" alt="Логотип Кулибина">
                 <span class="site-title">Иван Кулибин</span>
@@ -26,7 +25,6 @@
             <!-- Меню навигации -->
             <nav id="nav-menu">
                 <ul>
-                    <!-- Не забудьте проставить class="active" на нужной странице! -->
                     <li class="btn"><a href="index.html">Главная</a></li>
                     <li class="btn"><a href="biography.html">Биография</a></li>
                     <li class="btn"><a href="izobretenia.html">Изобретения</a></li>
@@ -39,12 +37,18 @@
     <h1 class="zagolovok">Галерея</h1>
 
     <!-- Контейнеры под фото и видео -->
-    <div class="regtangle_for_blenderphotos">ФОТО С БЛЕНДЕРА</div>
-    <div id="regtangle_for_blenderphotos_1">ФОТО С БЛЕНДЕРА</div>
-    <div class="regtangle_for_blenderphotos">ФОТО С БЛЕНДЕРА</div>
+    <div>
+        <img src="img/stand1.png" class="regtangle_for_blenderphotos" alt="stand1">
+    </div>
+    <div>
+        <img src="img/stand3.png" id="regtangle_for_blenderphotos_1" alt="stand3">
+    </div>
+    <div>
+        <img src="img/spotlight.png" class="regtangle_for_blenderphotos" alt="spotlight">
+    </div>
 
     <div id="regtangle_for_blendervideo">
-        <video src="kulibin.mp4" controls poster="img/iiKulibin.png" id="video"></video>
+        <video src="#" controls poster="img/iiKulibin.png" id="video"></video>
     </div>
 
     <button id="backToTop" title="Наверх">↑</button>

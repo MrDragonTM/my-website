@@ -557,12 +557,10 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 800px;
+    width: 780px;
     max-width: 90%;
-    height: 600px;
-    background-color: #8FB472;
-    border-radius: 15px;
-    font-size: large;
+    height: 500px;
+    border-radius: 30px;
     margin: 30px auto;
 }
 
